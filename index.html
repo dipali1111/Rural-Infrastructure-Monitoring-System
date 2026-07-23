@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ahmednagar Connect | Rural Infrastructure Monitoring System</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+<style>
+
+:root{
+  --teal-deep:#133336;
+  --teal-mid:#285F6B;
+  --teal-bright:#367D8A;
+  --teal-pale:#DCEAEC;
+  --bg:#F4F7F8;
+  --paper:#FFFFFF;
+  --ink:#133336;
+  --muted:#5C7477;
+  --line:#DDE6E7;
+  --amber:#C97A2E;
+}
+
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'Poppins',sans-serif;color:var(--ink);background:var(--bg);}
+a{text-decoration:none;color:inherit;}
+ul{list-style:none;}
+img{max-width:100%;display:block;}
+
+.gov-strip{
+  background:var(--teal-deep);color:#CFE3E5;font-size:12px;
+  padding:6px 40px;display:flex;justify-content:space-between;align-items:center;
+}
+.gov-strip .a11y{display:flex;gap:16px;}
+.gov-strip .a11y i{cursor:pointer;}
+
+header{background:var(--paper);border-bottom:1px solid var(--line);}
+.header-top{display:flex;align-items:center;justify-content:space-between;padding:16px 40px;}
+.brand{display:flex;align-items:center;gap:14px;}
+.brand .emblem{width:52px;height:52px;flex-shrink:0;}
+.brand .emblem img{width:100%;height:100%;object-fit:contain;}
+.brand-text-mr{font-size:13px;color:var(--muted);font-weight:500;}
+.brand h1{font-size:20px;font-weight:700;color:var(--teal-deep);}
+.brand p{font-size:12px;color:var(--muted);}
+
+.header-actions{display:flex;align-items:center;gap:16px;}
+.lang-toggle{font-size:12.5px;color:var(--muted);}
+.lang-toggle span{color:var(--teal-mid);font-weight:600;cursor:pointer;padding:2px 4px;}
+.lang-toggle span.active-lang{font-weight:700;text-decoration:underline;}
+
+.btn-signup{
+  background:var(--teal-mid);color:#fff;padding:9px 20px;border-radius:4px;
+  font-size:13px;font-weight:600;border:none;cursor:pointer;
+}
+.btn-signup:hover{background:var(--teal-deep);}
+
+/* ===== NAVBAR ===== */
+.navbar{background:var(--teal-mid);position:relative;z-index:200;}
+.navbar ul{display:flex;padding:0 40px;}
+.navbar > ul > li{position:relative;}
+.navbar li a{
+  display:flex;align-items:center;gap:6px;padding:14px 20px;
+  color:#fff;font-size:13.5px;font-weight:500;
+  border-right:1px solid rgba(255,255,255,.12);cursor:pointer;
+}
+.navbar li a:hover{background:var(--teal-deep);}
+.navbar li.active a{background:var(--teal-deep);}
+
+/* ===== DROPDOWN (single definition, click-based, no overlap) ===== */
+.dropdown{
+  display:none;
+  background:var(--teal-deep);
+  border-top:1px solid rgba(255,255,255,.15);
+}
+.dropdown.show{display:flex;}
+.dropdown li a{
+  color:#fff;
+  padding:12px 20px;
+  font-size:13px;
+  font-weight:400;
+  border-right:1px solid rgba(255,255,255,.12);
+}
+.dropdown li a:hover{background:var(--teal-mid);}
+
+/* ===== TICKER ===== */
+.ticker-bar{background:var(--teal-deep);display:flex;align-items:center;border-bottom:2px solid var(--amber);position:relative;z-index:1;}
+.ticker-label{background:var(--amber);color:#fff;font-size:12.5px;font-weight:700;padding:10px 20px;white-space:nowrap;letter-spacing:.5px;}
+.ticker-track{overflow:hidden;flex:1;padding:10px 20px;}
+.ticker-content{color:#CFE3E5;font-size:13px;white-space:nowrap;animation:scrollTicker 28s linear infinite;}
+@keyframes scrollTicker{0%{transform:translateX(100%);}100%{transform:translateX(-100%);}}
+
+.hero{
+  background:linear-gradient(135deg, rgba(19,51,54,.82), rgba(40,95,107,.82));
+  color:#fff;padding:70px 40px;text-align:center;
+}
+.hero .eyebrow{font-size:12px;letter-spacing:1.5px;text-transform:uppercase;color:#9FC7CC;margin-bottom:14px;}
+.hero h2{font-size:32px;font-weight:700;margin-bottom:12px;}
+.hero .marathi-line{font-size:15px;color:#B9D6D9;margin-bottom:14px;}
+.hero p{font-size:15px;color:#D3E6E8;max-width:620px;margin:0 auto 26px;line-height:1.6;}
+.hero-actions{display:flex;gap:14px;justify-content:center;}
+.btn-primary{background:#fff;color:var(--teal-deep);padding:12px 26px;border-radius:4px;font-weight:600;font-size:14px;border:none;cursor:pointer;}
+.btn-outline{border:1px solid rgba(255,255,255,.5);color:#fff;padding:12px 26px;border-radius:4px;font-weight:600;font-size:14px;background:none;cursor:pointer;}
+.btn-primary:hover{background:var(--teal-pale);}
+.btn-outline:hover{background:rgba(255,255,255,.12);}
+
+section{padding:60px 40px;}
+.section-head{text-align:center;margin-bottom:40px;}
+.section-head .tag{font-size:12px;letter-spacing:1px;text-transform:uppercase;color:var(--teal-bright);font-weight:600;margin-bottom:8px;}
+.section-head h3{font-size:26px;font-weight:700;color:var(--teal-deep);}
+.section-head p{font-size:13.5px;color:var(--muted);margin-top:8px;max-width:560px;margin-left:auto;margin-right:auto;}
+
+.about{background:var(--paper);}
+.about-intro{max-width:820px;margin:0 auto 40px;font-size:14px;color:var(--muted);line-height:1.75;text-align:center;}
+.about-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;max-width:1100px;margin:0 auto 40px;}
+.about-card{border:1px solid var(--line);padding:26px;border-radius:6px;}
+.about-card i{font-size:22px;color:var(--teal-mid);margin-bottom:14px;}
+.about-card h4{font-size:15px;font-weight:600;margin-bottom:8px;}
+.about-card p{font-size:13px;color:var(--muted);line-height:1.55;}
+
+.admin-structure{max-width:1000px;margin:0 auto;border:1px solid var(--line);border-radius:6px;overflow:hidden;}
+.admin-row{display:grid;grid-template-columns:1fr 2fr;border-bottom:1px solid var(--line);}
+.admin-row:last-child{border-bottom:none;}
+.admin-row .role{background:var(--teal-pale);padding:16px 20px;font-weight:600;font-size:13.5px;color:var(--teal-deep);display:flex;align-items:center;}
+.admin-row .desc{padding:16px 20px;font-size:13px;color:var(--muted);display:flex;align-items:center;}
+
+.stats-section{background:var(--bg);}
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;max-width:1100px;margin:0 auto;}
+.stat-box{background:var(--paper);border:1px solid var(--line);border-left:4px solid var(--teal-mid);padding:22px;border-radius:4px;text-align:center;}
+.stat-box h2{font-size:30px;font-weight:700;color:var(--teal-deep);}
+.stat-box p{font-size:12.5px;color:var(--muted);margin-top:6px;}
+
+.notices{background:var(--paper);}
+.notice-list{max-width:800px;margin:0 auto;}
+.notice-item{display:flex;gap:16px;padding:16px 0;border-bottom:1px solid var(--line);}
+.notice-date{background:var(--teal-pale);color:var(--teal-deep);font-size:11.5px;font-weight:600;padding:6px 10px;border-radius:4px;height:fit-content;white-space:nowrap;}
+.notice-text .t{font-size:13.5px;font-weight:600;}
+.notice-text .s{font-size:12px;color:var(--muted);margin-top:2px;}
+
+.gallery{background:var(--bg);}
+.gallery-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;max-width:1100px;margin:0 auto;}
+.gallery-tile{aspect-ratio:4/3;border-radius:6px;overflow:hidden;position:relative;background:var(--teal-pale);}
+.gallery-tile img{width:100%;height:100%;object-fit:cover;}
+.gallery-caption{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(to top, rgba(19,51,54,.85), transparent);color:#fff;font-size:12px;padding:20px 12px 10px;}
+
+.reports-detail{background:var(--paper);}
+.reports-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;max-width:1000px;margin:0 auto;}
+.report-card{border:1px solid var(--line);border-radius:6px;padding:24px;}
+.report-card h4{font-size:15px;font-weight:600;color:var(--teal-deep);margin-bottom:10px;display:flex;align-items:center;gap:10px;}
+.report-card h4 i{color:var(--teal-bright);}
+.report-card p{font-size:13px;color:var(--muted);line-height:1.6;margin-bottom:14px;}
+.report-card a.btn-small{
+  display:inline-block;background:var(--teal-mid);color:#fff;padding:8px 16px;
+  border-radius:4px;font-size:12.5px;font-weight:600;
+}
+.report-card a.btn-small:hover{background:var(--teal-deep);}
+
+.contact{background:var(--bg);}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:30px;max-width:900px;margin:0 auto;}
+.contact-info div{display:flex;gap:12px;margin-bottom:20px;font-size:13.5px;}
+.contact-info i{color:var(--teal-mid);width:20px;}
+.contact-form{background:var(--paper);padding:24px;border-radius:6px;border:1px solid var(--line);}
+.contact-form input, .contact-form textarea{width:100%;padding:11px;border:1px solid var(--line);border-radius:4px;margin-bottom:12px;font-family:'Poppins';font-size:13px;}
+.contact-form button{background:var(--teal-mid);color:#fff;border:none;padding:11px 24px;border-radius:4px;font-weight:600;cursor:pointer;}
+.contact-form button:hover{background:var(--teal-deep);}
+
+.help-section{background:var(--paper);}
+.help-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;max-width:1000px;margin:0 auto;}
+.help-card{border:1px solid var(--line);border-radius:6px;padding:24px;text-align:center;}
+.help-card i{font-size:24px;color:var(--teal-mid);margin-bottom:12px;}
+.help-card h4{font-size:14.5px;font-weight:600;margin-bottom:8px;}
+.help-card p{font-size:12.5px;color:var(--muted);line-height:1.6;}
+
+footer{background:var(--teal-deep);color:#B9D6D9;padding:40px 40px 20px;}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:30px;max-width:1100px;margin:0 auto 24px;}
+.footer-grid h4{color:#fff;font-size:14px;margin-bottom:14px;}
+.footer-grid p, .footer-grid a{font-size:12.5px;line-height:2;display:block;color:#B9D6D9;}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.1);padding-top:16px;text-align:center;font-size:12px;color:#8FB3B8;}
+
+@media(max-width:900px){
+  .about-grid,.stats-grid,.reports-grid,.help-grid{grid-template-columns:repeat(2,1fr);}
+  .gallery-grid{grid-template-columns:repeat(2,1fr);}
+  .contact-grid{grid-template-columns:1fr;}
+  .footer-grid{grid-template-columns:1fr;}
+  .navbar ul{flex-wrap:wrap;}
+  .admin-row{grid-template-columns:1fr;}
+}
+@media(max-width:600px){
+  .header-top{flex-direction:column;gap:12px;text-align:center;}
+  .gov-strip{flex-direction:column;gap:6px;text-align:center;}
+  .hero h2{font-size:24px;}
+  .about-grid,.stats-grid,.gallery-grid,.reports-grid,.help-grid{grid-template-columns:1fr;}
+  .ticker-label{display:none;}
+}
+
+</style>
+</head>
+<body>
+
+<div class="gov-strip">
+  <span data-en="Government of Maharashtra | District Administration, Ahmednagar" data-mr="महाराष्ट्र शासन | जिल्हा प्रशासन, अहमदनगर">Government of Maharashtra | District Administration, Ahmednagar</span>
+  <div class="a11y">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <i class="fa-solid fa-sitemap"></i>
+    <i class="fa-solid fa-universal-access"></i>
+    <i class="fa-solid fa-text-height"></i>
+  </div>
+</div>
+
+<header>
+  <div class="header-top">
+    <a href="#home" class="brand">
+      <div class="emblem"><img src="assets/logo.png.jpeg" alt="Ahmednagar Connect Logo"></div>
+      <div>
+        <div class="brand-text-mr">अहमदनगर जिल्हा प्रशासन</div>
+        <h1>Ahmednagar Connect</h1>
+        <p data-en="Rural Infrastructure Monitoring System" data-mr="ग्रामीण पायाभूत सुविधा सनियंत्रण प्रणाली">Rural Infrastructure Monitoring System</p>
+      </div>
+    </a>
+    <div class="header-actions">
+      <div class="lang-toggle">
+        <span id="lang-en" class="active-lang" onclick="setLang('en')">English</span> |
+        <span id="lang-mr" onclick="setLang('mr')">मराठी</span>
+      </div>
+      <a href="register.html"><button class="btn-signup"><i class="fa-solid fa-user-plus"></i>&nbsp; <span data-en="Sign Up" data-mr="नोंदणी करा">Sign Up</span></button></a>
+    </div>
+  </div>
+
+  <nav class="navbar">
+    <ul>
+      <li class="active"><a href="#home" data-en="Home" data-mr="मुख्यपृष्ठ">Home</a></li>
+      <li><a href="javascript:void(0)" onclick="toggleDropdown('dropdown-about')"><span data-en="About Us" data-mr="आमच्याबद्दल">About Us</span> <i class="fa-solid fa-caret-down" style="font-size:10px;"></i></a></li>
+      <li><a href="javascript:void(0)" onclick="toggleDropdown('dropdown-reports')"><span data-en="Reports" data-mr="अहवाल">Reports</span> <i class="fa-solid fa-caret-down" style="font-size:10px;"></i></a></li>
+      <li><a href="#gallery" data-en="Gallery" data-mr="गॅलरी">Gallery</a></li>
+      <li><a href="#notices" data-en="Notices" data-mr="सूचना">Notices</a></li>
+      <li><a href="#contact" data-en="Contact Us" data-mr="संपर्क करा">Contact Us</a></li>
+      <li><a href="#help" data-en="Help" data-mr="मदत">Help</a></li>
+    </ul>
+  </nav>
+
+  <ul class="dropdown" id="dropdown-about">
+    <li><a href="#about-portal" data-en="About the Portal" data-mr="पोर्टलबद्दल">About the Portal</a></li>
+    <li><a href="#about-vision" data-en="Vision & Objectives" data-mr="दृष्टी आणि उद्दिष्टे">Vision &amp; Objectives</a></li>
+    <li><a href="#about-admin" data-en="District Administration" data-mr="जिल्हा प्रशासन">District Administration</a></li>
+  </ul>
+
+  <ul class="dropdown" id="dropdown-reports">
+    <li><a href="#report-fund" data-en="Fund Utilization Reports" data-mr="निधी वापर अहवाल">Fund Utilization Reports</a></li>
+    <li><a href="#report-taluka" data-en="Taluka-wise Progress" data-mr="तालुकानिहाय प्रगती">Taluka-wise Progress</a></li>
+  </ul>
+  <div class="ticker-bar">
+    <div class="ticker-label" data-en="LATEST UPDATES" data-mr="ताज्या घडामोडी">LATEST UPDATES</div>
+    <div class="ticker-track">
+      <div class="ticker-content" data-en="Q1 FY 2026–27 Fund Utilization Report Published &nbsp;&nbsp;•&nbsp;&nbsp; 6 New Village Road Works Sanctioned — Rahata Taluka &nbsp;&nbsp;•&nbsp;&nbsp; Portal Maintenance Scheduled: 25 July, 11 PM – 1 AM &nbsp;&nbsp;•&nbsp;&nbsp; School Building Verification Completed — Shevgaon" data-mr="Q1 FY 2026–27 निधी वापर अहवाल प्रकाशित &nbsp;&nbsp;•&nbsp;&nbsp; 6 नवीन गाव रस्ते कामे मंजूर — राहाता तालुका &nbsp;&nbsp;•&nbsp;&nbsp; पोर्टल देखभाल नियोजित: 25 जुलै, रात्री 11 – पहाटे 1 &nbsp;&nbsp;•&nbsp;&nbsp; शाळा इमारत पडताळणी पूर्ण — शेवगाव">
+        Q1 FY 2026–27 Fund Utilization Report Published &nbsp;&nbsp;•&nbsp;&nbsp;
+        6 New Village Road Works Sanctioned — Rahata Taluka &nbsp;&nbsp;•&nbsp;&nbsp;
+        Portal Maintenance Scheduled: 25 July, 11 PM – 1 AM &nbsp;&nbsp;•&nbsp;&nbsp;
+        School Building Verification Completed — Shevgaon
+      </div>
+    </div>
+  </div>
+</header>
+
+<section class="hero" id="home">
+  <div class="eyebrow" data-en="District Rural Infrastructure Portal" data-mr="जिल्हा ग्रामीण पायाभूत सुविधा पोर्टल">District Rural Infrastructure Portal</div>
+  <h2 data-en="Transparent Monitoring of Rural Infrastructure Works" data-mr="ग्रामीण पायाभूत सुविधा कामांचे पारदर्शक सनियंत्रण">Transparent Monitoring of Rural Infrastructure Works</h2>
+  <div class="marathi-line">पारदर्शक प्रशासन • सक्षम ग्रामीण विकास</div>
+  <p data-en="A centralized platform to track village roads, water supply, schools, drainage, and public facility projects across Ahmednagar district — from planning to completion." data-mr="अहमदनगर जिल्ह्यातील गाव रस्ते, पाणीपुरवठा, शाळा, नाले आणि सार्वजनिक सुविधा प्रकल्पांचा मागोवा घेण्यासाठी एक केंद्रीकृत व्यासपीठ — नियोजनापासून पूर्णत्वापर्यंत.">A centralized platform to track village roads, water supply, schools, drainage, and public facility projects across Ahmednagar district — from planning to completion.</p>
+  <div class="hero-actions">
+    <button class="btn-primary" onclick="document.getElementById('report-fund').scrollIntoView()" data-en="View Reports" data-mr="अहवाल पहा">View Reports</button>
+    <button class="btn-outline" onclick="document.getElementById('about-portal').scrollIntoView()" data-en="Learn More" data-mr="अधिक जाणून घ्या">Learn More</button>
+  </div>
+</section>
+
+<section class="about" id="about">
+  <div class="section-head">
+    <div class="tag" data-en="About Us" data-mr="आमच्याबद्दल">About Us</div>
+    <h3 data-en="Digital Governance for Rural Development" data-mr="ग्रामीण विकासासाठी डिजिटल प्रशासन">Digital Governance for Rural Development</h3>
+  </div>
+
+  <p class="about-intro" id="about-portal" data-en="Ahmednagar Connect is a centralized web-based portal for Ahmednagar district to monitor the planning, execution, financial utilization, verification, and completion of rural infrastructure works — including village roads, school buildings, water supply, drainage, and public facilities — implemented through district, taluka, and village-level authorities. The portal replaces scattered paper records with a transparent digital workflow." data-mr="अहमदनगर कनेक्ट हे अहमदनगर जिल्ह्यासाठी एक केंद्रीकृत वेब-आधारित पोर्टल आहे जे ग्रामीण पायाभूत सुविधा कामांचे नियोजन, अंमलबजावणी, आर्थिक वापर, पडताळणी आणि पूर्णत्व यांचे सनियंत्रण करते — यामध्ये गाव रस्ते, शाळा इमारती, पाणीपुरवठा, नाले आणि सार्वजनिक सुविधांचा समावेश आहे — जिल्हा, तालुका आणि गाव पातळीवरील प्राधिकरणांमार्फत राबवले जाते. हे पोर्टल विखुरलेल्या कागदी नोंदींच्या जागी एक पारदर्शक डिजिटल कार्यप्रणाली आणते.">
+    Ahmednagar Connect is a centralized web-based portal for Ahmednagar district to monitor the planning, execution, financial utilization, verification, and completion of rural infrastructure works — including village roads, school buildings, water supply, drainage, and public facilities — implemented through district, taluka, and village-level authorities. The portal replaces scattered paper records with a transparent digital workflow.
+  </p>
+
+  <div class="about-grid" id="about-vision">
+    <div class="about-card">
+      <i class="fa-solid fa-eye"></i>
+      <h4 data-en="Our Vision" data-mr="आमची दृष्टी">Our Vision</h4>
+      <p data-en="To provide real-time visibility of rural infrastructure projects across the district, improve accountability at every administrative level, and enable faster, evidence-based decisions." data-mr="जिल्ह्यातील ग्रामीण पायाभूत सुविधा प्रकल्पांची रिअल-टाइम दृश्यमानता प्रदान करणे, प्रत्येक प्रशासकीय स्तरावर उत्तरदायित्व सुधारणे आणि जलद, पुराव्यावर आधारित निर्णय घेण्यास सक्षम करणे.">To provide real-time visibility of rural infrastructure projects across the district, improve accountability at every administrative level, and enable faster, evidence-based decisions.</p>
+    </div>
+    <div class="about-card">
+      <i class="fa-solid fa-bullseye"></i>
+      <h4 data-en="What We Do" data-mr="आम्ही काय करतो">What We Do</h4>
+      <p data-en="Centralize project, financial, and progress data. Enable monitoring from village to district level. Improve transparency through date-stamped, geo-tagged evidence." data-mr="प्रकल्प, आर्थिक आणि प्रगती डेटा केंद्रीकृत करणे. गाव ते जिल्हा स्तरापर्यंत सनियंत्रण सक्षम करणे. तारीख-नोंदित, भौगोलिक-टॅग केलेल्या पुराव्याद्वारे पारदर्शकता सुधारणे.">Centralize project, financial, and progress data. Enable monitoring from village to district level. Improve transparency through date-stamped, geo-tagged evidence.</p>
+    </div>
+    <div class="about-card">
+      <i class="fa-solid fa-scale-balanced"></i>
+      <h4 data-en="Our Commitment" data-mr="आमची बांधिलकी">Our Commitment</h4>
+      <p data-en="Reduce paperwork, duplicate entries, and reporting delays — ensuring every rupee and every work is accounted for, visibly and transparently." data-mr="कागदपत्रे, डुप्लिकेट नोंदी आणि अहवाल विलंब कमी करणे — प्रत्येक रुपया आणि प्रत्येक काम दृश्यमान आणि पारदर्शकपणे हिशेबात असल्याची खात्री करणे.">Reduce paperwork, duplicate entries, and reporting delays — ensuring every rupee and every work is accounted for, visibly and transparently.</p>
+    </div>
+  </div>
+
+  <div class="admin-structure" id="about-admin">
+    <div class="admin-row">
+      <div class="role" data-en="Village / Gram Panchayat" data-mr="गाव / ग्रामपंचायत">Village / Gram Panchayat</div>
+      <div class="desc" data-en="Enters and updates local works, uploads progress documents and photos" data-mr="स्थानिक कामे नोंदवते आणि अद्ययावत करते, प्रगती कागदपत्रे आणि छायाचित्रे अपलोड करते">Enters and updates local works, uploads progress documents and photos</div>
+    </div>
+    <div class="admin-row">
+      <div class="role" data-en="Engineer / Verifier" data-mr="अभियंता / पडताळणीकर्ता">Engineer / Verifier</div>
+      <div class="desc" data-en="Conducts technical inspection and validates quantity, quality, and stage of work" data-mr="तांत्रिक तपासणी करतो आणि कामाचे प्रमाण, गुणवत्ता आणि टप्पा प्रमाणित करतो">Conducts technical inspection and validates quantity, quality, and stage of work</div>
+    </div>
+    <div class="admin-row">
+      <div class="role" data-en="Taluka Officer" data-mr="तालुका अधिकारी">Taluka Officer</div>
+      <div class="desc" data-en="Monitors taluka-level progress, delays, issues, and fund utilization" data-mr="तालुका पातळीवरील प्रगती, विलंब, समस्या आणि निधी वापराचे सनियंत्रण करतो">Monitors taluka-level progress, delays, issues, and fund utilization</div>
+    </div>
+    <div class="admin-row">
+      <div class="role" data-en="District / CEO Authority" data-mr="जिल्हा / मुख्य कार्यकारी अधिकारी">District / CEO Authority</div>
+      <div class="desc" data-en="Oversees district-wide supervision, approvals, dashboards, and escalations" data-mr="जिल्हास्तरीय पर्यवेक्षण, मंजुरी, डॅशबोर्ड आणि तक्रार निवारणाचे निरीक्षण करतो">Oversees district-wide supervision, approvals, dashboards, and escalations</div>
+    </div>
+  </div>
+</section>
+
+<section class="stats-section">
+  <div class="section-head">
+    <div class="tag" data-en="District Snapshot" data-mr="जिल्हा आढावा">District Snapshot</div>
+    <h3 data-en="Rural Infrastructure at a Glance" data-mr="एका दृष्टीक्षेपात ग्रामीण पायाभूत सुविधा">Rural Infrastructure at a Glance</h3>
+  </div>
+  <div class="stats-grid">
+    <div class="stat-box"><h2>248</h2><p data-en="Villages Covered" data-mr="समाविष्ट गावे">Villages Covered</p></div>
+    <div class="stat-box"><h2>87</h2><p data-en="Total Projects" data-mr="एकूण प्रकल्प">Total Projects</p></div>
+    <div class="stat-box"><h2>₹18.4 Cr</h2><p data-en="Funds Utilized (FY 2026–27)" data-mr="वापरलेला निधी (आर्थिक वर्ष 2026–27)">Funds Utilized (FY 2026–27)</p></div>
+    <div class="stat-box"><h2>62</h2><p data-en="Projects In Progress" data-mr="सुरू असलेले प्रकल्प">Projects In Progress</p></div>
+  </div>
+</section>
+
+<section class="notices" id="notices">
+  <div class="section-head">
+    <div class="tag" data-en="Announcements" data-mr="घोषणा">Announcements</div>
+    <h3 data-en="Latest News & Notices" data-mr="ताज्या बातम्या आणि सूचना">Latest News &amp; Notices</h3>
+  </div>
+  <div class="notice-list">
+    <div class="notice-item">
+      <div class="notice-date">18 Jul 2026</div>
+      <div class="notice-text">
+        <div class="t" data-en="Q1 FY 2026–27 Fund Utilization Report Published" data-mr="Q1 FY 2026–27 निधी वापर अहवाल प्रकाशित">Q1 FY 2026–27 Fund Utilization Report Published</div>
+        <div class="s" data-en="District-wide expenditure summary now available under Reports." data-mr="जिल्हास्तरीय खर्चाचा सारांश आता अहवाल विभागात उपलब्ध आहे.">District-wide expenditure summary now available under Reports.</div>
+      </div>
+    </div>
+    <div class="notice-item">
+      <div class="notice-date">10 Jul 2026</div>
+      <div class="notice-text">
+        <div class="t" data-en="New Village Road Works Approved — Rahata Taluka" data-mr="नवीन गाव रस्ते कामे मंजूर — राहाता तालुका">New Village Road Works Approved — Rahata Taluka</div>
+        <div class="s" data-en="6 new works sanctioned under rural connectivity scheme." data-mr="ग्रामीण जोडणी योजनेअंतर्गत 6 नवीन कामे मंजूर.">6 new works sanctioned under rural connectivity scheme.</div>
+      </div>
+    </div>
+    <div class="notice-item">
+      <div class="notice-date">02 Jul 2026</div>
+      <div class="notice-text">
+        <div class="t" data-en="Portal Maintenance Notice" data-mr="पोर्टल देखभाल सूचना">Portal Maintenance Notice</div>
+        <div class="s" data-en="Scheduled downtime on 25 July, 11 PM – 1 AM for system upgrade." data-mr="प्रणाली अद्ययावतीकरणासाठी 25 जुलै, रात्री 11 – पहाटे 1 दरम्यान नियोजित बंद.">Scheduled downtime on 25 July, 11 PM – 1 AM for system upgrade.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="gallery" id="gallery">
+  <div class="section-head">
+    <div class="tag" data-en="Field Documentation" data-mr="क्षेत्रीय दस्तऐवजीकरण">Field Documentation</div>
+    <h3 data-en="Project Gallery" data-mr="प्रकल्प गॅलरी">Project Gallery</h3>
+  </div>
+  <div class="gallery-grid">
+    <div class="gallery-tile">
+      <img src="assets/VILLAGE ROAD.jpg" alt="Village Road, Rahata">
+      <div class="gallery-caption">Village Road, Rahata</div>
+    </div>
+    <div class="gallery-tile">
+      <img src="assets/WATER TANK.webp" alt="Water Tank, Kopargaon">
+      <div class="gallery-caption">Water Tank, Kopargaon</div>
+    </div>
+    <div class="gallery-tile">
+      <img src="assets/SCHOOL BLD.avif" alt="School Building, Shevgaon">
+      <div class="gallery-caption">School Building, Shevgaon</div>
+    </div>
+    <div class="gallery-tile">
+      <img src="assets/DRAINAGE.jpg" alt="Drainage Work, Pathardi">
+      <div class="gallery-caption">Drainage Work, Pathardi</div>
+    </div>
+  </div>
+</section>
+
+<section class="reports-detail" id="reports">
+  <div class="section-head">
+    <div class="tag" data-en="Public Reports" data-mr="सार्वजनिक अहवाल">Public Reports</div>
+    <h3 data-en="District Reports & Progress" data-mr="जिल्हा अहवाल आणि प्रगती">District Reports &amp; Progress</h3>
+  </div>
+  <div class="reports-grid">
+    <div class="report-card" id="report-fund">
+      <h4><i class="fa-solid fa-indian-rupee-sign"></i> <span data-en="Fund Utilization Reports" data-mr="निधी वापर अहवाल">Fund Utilization Reports</span></h4>
+      <p data-en="View district-wide expenditure summaries, sanctioned amounts, and utilization percentages for FY 2026–27, updated quarterly." data-mr="आर्थिक वर्ष 2026–27 साठी जिल्हास्तरीय खर्चाचा सारांश, मंजूर रक्कम आणि वापर टक्केवारी पहा, त्रैमासिक अद्ययावत केली जाते.">View district-wide expenditure summaries, sanctioned amounts, and utilization percentages for FY 2026–27, updated quarterly.</p>
+      <a href="#" class="btn-small" onclick="alert('Fund Utilization Report PDF will be linked here by the reports team.'); return false;" data-en="View Report" data-mr="अहवाल पहा">View Report</a>
+    </div>
+    <div class="report-card" id="report-taluka">
+      <h4><i class="fa-solid fa-map-location-dot"></i> <span data-en="Taluka-wise Progress" data-mr="तालुकानिहाय प्रगती">Taluka-wise Progress</span></h4>
+      <p data-en="Track project completion rates, delays, and active works broken down by each taluka in Ahmednagar district." data-mr="अहमदनगर जिल्ह्यातील प्रत्येक तालुक्यानुसार प्रकल्प पूर्णता दर, विलंब आणि सक्रिय कामांचा मागोवा घ्या.">Track project completion rates, delays, and active works broken down by each taluka in Ahmednagar district.</p>
+      <a href="#" class="btn-small" onclick="alert('Taluka-wise Progress Report will be linked here by the reports team.'); return false;" data-en="View Report" data-mr="अहवाल पहा">View Report</a>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="section-head">
+    <div class="tag" data-en="Get in Touch" data-mr="संपर्कात रहा">Get in Touch</div>
+    <h3 data-en="Contact District Office" data-mr="जिल्हा कार्यालयाशी संपर्क साधा">Contact District Office</h3>
+  </div>
+  <div class="contact-grid">
+    <div class="contact-info">
+      <div><i class="fa-solid fa-location-dot"></i> <span data-en="Collector Office, Ahmednagar, Maharashtra – 414001" data-mr="जिल्हाधिकारी कार्यालय, अहमदनगर, महाराष्ट्र – 414001">Collector Office, Ahmednagar, Maharashtra – 414001</span></div>
+      <div><i class="fa-solid fa-phone"></i> 0241-XXX-XXXX</div>
+      <div><i class="fa-solid fa-envelope"></i> support@ahmednagarconnect.gov.in</div>
+      <div><i class="fa-solid fa-clock"></i> <span data-en="Mon–Sat, 10:00 AM – 6:00 PM" data-mr="सोम–शनि, सकाळी 10:00 – सायंकाळी 6:00">Mon–Sat, 10:00 AM – 6:00 PM</span></div>
+    </div>
+    <form class="contact-form" onsubmit="alert('Message form is a frontend demo — backend not connected yet.'); return false;">
+      <input type="text" data-en-ph="Your Name" data-mr-ph="तुमचे नाव" placeholder="Your Name">
+      <input type="email" data-en-ph="Your Email" data-mr-ph="तुमचा ईमेल" placeholder="Your Email">
+      <textarea rows="4" data-en-ph="Your Message" data-mr-ph="तुमचा संदेश" placeholder="Your Message"></textarea>
+      <button type="submit" data-en="Send Message" data-mr="संदेश पाठवा">Send Message</button>
+    </form>
+  </div>
+</section>
+
+<section class="help-section" id="help">
+  <div class="section-head">
+    <div class="tag" data-en="Support" data-mr="सहाय्य">Support</div>
+    <h3 data-en="Help & Frequently Asked Questions" data-mr="मदत आणि वारंवार विचारले जाणारे प्रश्न">Help &amp; Frequently Asked Questions</h3>
+  </div>
+  <div class="help-grid">
+    <div class="help-card">
+      <i class="fa-solid fa-user-plus"></i>
+      <h4 data-en="How do I register?" data-mr="मी नोंदणी कशी करू?">How do I register?</h4>
+      <p data-en="Click Sign Up in the top-right corner and fill in your details to create an account." data-mr="वरच्या उजव्या कोपऱ्यातील साइन अप वर क्लिक करा आणि खाते तयार करण्यासाठी तुमचे तपशील भरा.">Click Sign Up in the top-right corner and fill in your details to create an account.</p>
+    </div>
+    <div class="help-card">
+      <i class="fa-solid fa-file-lines"></i>
+      <h4 data-en="Where can I find reports?" data-mr="मला अहवाल कुठे मिळतील?">Where can I find reports?</h4>
+      <p data-en="Visit the Reports section from the navigation menu for fund utilization and taluka-wise progress." data-mr="निधी वापर आणि तालुकानिहाय प्रगतीसाठी नेव्हिगेशन मेनूमधील अहवाल विभागाला भेट द्या.">Visit the Reports section from the navigation menu for fund utilization and taluka-wise progress.</p>
+    </div>
+    <div class="help-card">
+      <i class="fa-solid fa-headset"></i>
+      <h4 data-en="Need further assistance?" data-mr="अधिक मदत हवी आहे?">Need further assistance?</h4>
+      <p data-en="Reach the District Office directly via the Contact Us section, Monday to Saturday." data-mr="सोमवार ते शनिवार दरम्यान संपर्क विभागाद्वारे थेट जिल्हा कार्यालयाशी संपर्क साधा.">Reach the District Office directly via the Contact Us section, Monday to Saturday.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-grid">
+    <div>
+      <h4>Ahmednagar Connect</h4>
+      <p data-en="Rural Infrastructure Monitoring System — a Government of Maharashtra initiative for transparent, accountable rural development." data-mr="ग्रामीण पायाभूत सुविधा सनियंत्रण प्रणाली — पारदर्शक, उत्तरदायी ग्रामीण विकासासाठी महाराष्ट्र शासनाचा उपक्रम.">Rural Infrastructure Monitoring System — a Government of Maharashtra initiative for transparent, accountable rural development.</p>
+    </div>
+    <div>
+      <h4 data-en="Quick Links" data-mr="द्रुत दुवे">Quick Links</h4>
+      <a href="#about-portal" data-en="About Us" data-mr="आमच्याबद्दल">About Us</a>
+      <a href="#reports" data-en="Reports" data-mr="अहवाल">Reports</a>
+      <a href="#gallery" data-en="Gallery" data-mr="गॅलरी">Gallery</a>
+      <a href="#contact" data-en="Contact" data-mr="संपर्क">Contact</a>
+    </div>
+    <div>
+      <h4 data-en="Legal" data-mr="कायदेशीर">Legal</h4>
+      <a href="#" data-en="Privacy Policy" data-mr="गोपनीयता धोरण">Privacy Policy</a>
+      <a href="#" data-en="Terms of Use" data-mr="वापर अटी">Terms of Use</a>
+      <a href="#" data-en="Accessibility" data-mr="प्रवेशयोग्यता">Accessibility</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    © 2026 Ahmednagar Connect | Rural Infrastructure Monitoring System &nbsp;·&nbsp; <span data-en="Version 1.0" data-mr="आवृत्ती 1.0">Version 1.0</span>
+  </div>
+</footer>
+
+<script>
+function toggleDropdown(id) {
+  const dropdown = document.getElementById(id);
+  const isOpen = dropdown.classList.contains('show');
+  document.querySelectorAll('.dropdown.show').forEach(d => d.classList.remove('show'));
+  if (!isOpen) dropdown.classList.add('show');
+}
+document.addEventListener('click', function(e) {
+  if (!e.target.closest('.navbar') && !e.target.closest('.dropdown')) {
+    document.querySelectorAll('.dropdown.show').forEach(d => d.classList.remove('show'));
+  }
+});
+// ===== Language toggle (EN / MR) =====
+function setLang(lang) {
+  document.querySelectorAll('[data-en]').forEach(el => {
+    const text = lang === 'mr' ? el.getAttribute('data-mr') : el.getAttribute('data-en');
+    if (text !== null) el.textContent = text;
+  });
+  document.querySelectorAll('[data-en-ph]').forEach(el => {
+    const ph = lang === 'mr' ? el.getAttribute('data-mr-ph') : el.getAttribute('data-en-ph');
+    if (ph !== null) el.setAttribute('placeholder', ph);
+  });
+  document.getElementById('lang-en').classList.toggle('active-lang', lang === 'en');
+  document.getElementById('lang-mr').classList.toggle('active-lang', lang === 'mr');
+  document.documentElement.setAttribute('lang', lang);
+}
+</script>
+
+</body>
+</html>
