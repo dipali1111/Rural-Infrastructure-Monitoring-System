@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Register | Ahmednagar Connect</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+<style>
+
+:root{
+  --teal-deep:#133336;
+  --teal-mid:#285F6B;
+  --teal-bright:#367D8A;
+  --teal-pale:#DCEAEC;
+  --bg:#F4F7F8;
+  --paper:#FFFFFF;
+  --ink:#133336;
+  --muted:#5C7477;
+  --line:#DDE6E7;
+}
+
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Poppins',sans-serif;color:var(--ink);background:var(--bg);}
+a{text-decoration:none;color:inherit;}
+
+.gov-strip{
+  background:var(--teal-deep);
+  color:#CFE3E5;
+  font-size:12px;
+  padding:6px 40px;
+  display:flex;
+  justify-content:space-between;
+}
+
+header{background:var(--paper);border-bottom:1px solid var(--line);}
+.header-top{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:16px 40px;
+}
+.brand{display:flex;align-items:center;gap:14px;}
+.brand .emblem{
+  width:48px;height:48px;border-radius:6px;
+  overflow:hidden;
+}
+.brand .emblem img{width:100%;height:100%;object-fit:contain;}
+.brand h1{font-size:19px;font-weight:700;color:var(--teal-deep);}
+.brand p{font-size:12px;color:var(--muted);}
+
+.header-actions{display:flex;align-items:center;gap:14px;}
+.lang-toggle{font-size:12.5px;color:var(--muted);}
+.lang-toggle span{color:var(--teal-mid);font-weight:600;cursor:pointer;}
+
+.btn-ghost{
+  border:1px solid var(--teal-mid);
+  color:var(--teal-mid);
+  background:none;
+  padding:9px 20px;
+  border-radius:4px;
+  font-size:13px;
+  font-weight:600;
+  cursor:pointer;
+}
+.btn-ghost:hover{background:var(--teal-pale);}
+
+.form-wrap{
+  max-width:480px;
+  margin:50px auto;
+  background:var(--paper);
+  border:1px solid var(--line);
+  border-radius:6px;
+  padding:40px;
+}
+
+.form-wrap .eyebrow{
+  font-size:11.5px;letter-spacing:1px;text-transform:uppercase;
+  color:var(--teal-bright);font-weight:600;margin-bottom:8px;
+}
+.form-wrap h2{font-size:22px;font-weight:700;color:var(--teal-deep);margin-bottom:6px;}
+.form-wrap p.sub{font-size:13px;color:var(--muted);margin-bottom:28px;}
+
+.form-group{margin-bottom:18px;}
+.form-group label{
+  display:block;font-size:12.5px;font-weight:600;color:var(--ink);margin-bottom:6px;
+}
+.form-group input{
+  width:100%;padding:11px 13px;border:1px solid var(--line);
+  border-radius:4px;font-size:13.5px;font-family:'Poppins';
+}
+.form-group input:focus{outline:none;border-color:var(--teal-bright);}
+
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+
+.checkbox-row{
+  display:flex;align-items:flex-start;gap:8px;
+  font-size:12px;color:var(--muted);margin-bottom:24px;
+}
+.checkbox-row input{margin-top:3px;}
+.checkbox-row a{color:var(--teal-mid);font-weight:600;}
+
+.btn-submit{
+  width:100%;
+  background:var(--teal-mid);
+  color:#fff;
+  border:none;
+  padding:13px;
+  border-radius:4px;
+  font-weight:600;
+  font-size:14px;
+  cursor:pointer;
+}
+.btn-submit:hover{background:var(--teal-deep);}
+
+.form-footer{
+  text-align:center;
+  margin-top:22px;
+  font-size:13px;
+  color:var(--muted);
+}
+.form-footer a{color:var(--teal-mid);font-weight:600;}
+
+footer{
+  background:var(--teal-deep);
+  color:#8FB3B8;
+  text-align:center;
+  padding:22px;
+  font-size:12px;
+  margin-top:60px;
+}
+
+@media(max-width:600px){
+  .form-row{grid-template-columns:1fr;}
+  .form-wrap{margin:30px 16px;padding:28px;}
+  .header-top{flex-direction:column;gap:12px;text-align:center;}
+  .gov-strip{flex-direction:column;gap:2px;text-align:center;}
+}
+
+</style>
+</head>
+<body>
+
+<div class="gov-strip">
+  <span>Government of Maharashtra &nbsp;|&nbsp; District Administration, Ahmednagar</span>
+  <span>Skip to Main Content &nbsp;|&nbsp; Screen Reader Access</span>
+</div>
+
+<header>
+  <div class="header-top">
+    <a href="index.html" class="brand">
+      <div class="emblem"><img src="assets/logo.png.jpeg" alt="Ahmednagar Connect Logo"></div>
+      <div>
+        <h1>Ahmednagar Connect</h1>
+        <p>Rural Infrastructure Monitoring System</p>
+      </div>
+    </a>
+    <div class="header-actions">
+      <div class="lang-toggle"><span>English</span> | मराठी</div>
+      <a href="index.html"><button class="btn-ghost"><i class="fa-solid fa-house"></i>&nbsp; Home</button></a>
+    </div>
+  </div>
+</header>
+
+<div class="form-wrap">
+  <div class="eyebrow">New User</div>
+  <h2>Create Your Account</h2>
+  <p class="sub">Register to access rural infrastructure project updates for Ahmednagar district.</p>
+
+  <form method="POST" action="#">
+    <div class="form-group">
+      <label>Full Name</label>
+      <input type="text" placeholder="Enter your full name" required>
+    </div>
+
+    <div class="form-group">
+      <label>Email Address</label>
+      <input type="email" placeholder="you@example.com" required>
+    </div>
+
+    <div class="form-group">
+      <label>Mobile Number</label>
+      <input type="tel" placeholder="10-digit mobile number" required>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Password</label>
+        <input type="password" placeholder="Create password" required>
+      </div>
+      <div class="form-group">
+        <label>Confirm Password</label>
+        <input type="password" placeholder="Re-enter password" required>
+      </div>
+    </div>
+
+    <div class="checkbox-row">
+      <input type="checkbox" required>
+      <span>I agree to the <a href="#">Terms of Use</a> and <a href="#">Privacy Policy</a> of Ahmednagar District Administration.</span>
+    </div>
+
+    <button type="submit" class="btn-submit">Register</button>
+  </form>
+
+  <div class="form-footer">
+    Already have an account? <a href="#">Login here</a>
+  </div>
+</div>
+
+<footer>
+  © 2026 Ahmednagar Connect | Rural Infrastructure Monitoring System · Version 1.0
+</footer>
+
+</body>
+</html>
