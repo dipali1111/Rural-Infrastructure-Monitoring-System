@@ -54,7 +54,17 @@ header{background:var(--paper);border-bottom:1px solid var(--line);}
   font-size:13px;font-weight:600;border:none;cursor:pointer;
 }
 .btn-signup:hover{background:var(--teal-deep);}
-
+.btn-ghost-login{
+  border:1px solid var(--teal-mid);
+  color:var(--teal-mid);
+  background:none;
+  padding:9px 20px;
+  border-radius:4px;
+  font-size:13px;
+  font-weight:600;
+  cursor:pointer;
+}
+.btn-ghost-login:hover{background:var(--teal-pale);}
 /* ===== NAVBAR ===== */
 .navbar{background:var(--teal-mid);position:relative;z-index:200;}
 .navbar ul{display:flex;padding:0 40px;}
@@ -222,8 +232,8 @@ footer{background:var(--teal-deep);color:#B9D6D9;padding:40px 40px 20px;}
         <span id="lang-en" class="active-lang" onclick="setLang('en')">English</span> |
         <span id="lang-mr" onclick="setLang('mr')">मराठी</span>
       </div>
-      <a href="register.html"><button class="btn-signup"><i class="fa-solid fa-user-plus"></i>&nbsp; <span data-en="Sign Up" data-mr="नोंदणी करा">Sign Up</span></button></a>
-    </div>
+<button class="btn-ghost-login"><i class="fa-solid fa-right-to-bracket"></i>&nbsp; <span data-en="Login" data-mr="लॉगिन">Login</span></button>
+<a href="register.php"><button class="btn-signup"><i class="fa-solid fa-user-plus"></i>&nbsp; <span data-en="Sign Up" data-mr="नोंदणी करा">Sign Up</span></button></a>    </div>
   </div>
 
   <nav class="navbar">
