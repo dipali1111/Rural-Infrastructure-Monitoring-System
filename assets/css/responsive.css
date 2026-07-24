@@ -1,0 +1,1972 @@
+/* ==========================================================================
+   RESPONSIVE UTILITIES FOR AHMEDNAGAR CONNECT DASHBOARD
+   Bootstrap 5 + Advanced Media Queries for All Devices
+   Breakpoints: 320px, 375px, 480px, 576px, 768px, 992px, 1200px, 1400px
+   ========================================================================== */
+
+/* ============================================================================
+   ULTRA-SMALL DEVICES (320px - 375px)
+   ============================================================================ */
+
+@media (max-width: 375px) {
+    /* -------- HEADER -------- */
+    .ac-header {
+        padding: 8px 10px;
+        gap: 6px;
+        min-height: 56px;
+        flex-wrap: wrap;
+    }
+
+    .ac-header-left {
+        flex: 1 1 auto;
+        gap: 6px;
+    }
+
+    .ac-logo {
+        width: 28px;
+        height: 28px;
+    }
+
+    .ac-brand-title {
+        font-size: 0.65rem;
+        font-weight: 700;
+    }
+
+    .ac-brand-subtitle {
+        display: none;
+    }
+
+    .ac-sidebar-toggle {
+        width: 32px;
+        height: 32px;
+        font-size: 0.9rem;
+    }
+
+    /* Hide search on ultra-small */
+    .ac-header-search {
+        display: none !important;
+    }
+
+    .ac-header-right {
+        gap: 3px;
+        flex-shrink: 0;
+    }
+
+    .ac-icon-btn {
+        width: 32px;
+        height: 32px;
+        font-size: 0.85rem;
+    }
+
+    .ac-lang-btn {
+        padding: 0 6px;
+        font-size: 0.65rem;
+    }
+
+    .ac-profile-btn {
+        padding: 1px;
+        border-radius: 50%;
+    }
+
+    .ac-profile-img {
+        width: 28px;
+        height: 28px;
+    }
+
+    .ac-profile-name,
+    .ac-profile-role,
+    .ac-profile-btn i {
+        display: none !important;
+    }
+
+    /* -------- SIDEBAR -------- */
+    .ac-sidebar {
+        position: fixed;
+        left: 0;
+        top: 56px;
+        width: 240px;
+        height: calc(100vh - 56px);
+        z-index: 1040;
+        transform: translateX(-100%);
+        transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        box-shadow: 2px 0 12px rgba(0, 0, 0, 0.25);
+    }
+
+    .ac-sidebar.mobile-open {
+        transform: translateX(0);
+    }
+
+    .ac-sidebar-nav {
+        padding: 10px 6px;
+    }
+
+    .ac-sidebar-nav a {
+        padding: 8px 10px;
+        font-size: 0.78rem;
+        gap: 8px;
+    }
+
+    .ac-sidebar-nav a i {
+        font-size: 1rem;
+        width: 18px;
+    }
+
+    .ac-sidebar-backdrop {
+        display: none;
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 1035;
+        animation: fadeIn 0.2s ease;
+    }
+
+    .ac-sidebar-backdrop.show {
+        display: block;
+    }
+
+    /* -------- BODY LAYOUT -------- */
+    .ac-body-wrapper {
+        flex-direction: column;
+    }
+
+    .ac-main-content {
+        flex: 1 1 auto;
+        width: 100%;
+        padding: 10px 8px;
+        min-height: calc(100vh - 56px);
+    }
+
+    /* -------- CONTENT -------- */
+    .ac-breadcrumb {
+        font-size: 0.68rem;
+    }
+
+    .ac-page-title {
+        font-size: 1rem;
+        margin-bottom: 12px;
+    }
+
+    .page-header {
+        flex-direction: column;
+        gap: 10px;
+        margin-bottom: 12px;
+    }
+
+    .page-header h1 {
+        font-size: 1.1rem;
+        margin-bottom: 2px;
+    }
+
+    .page-header p {
+        font-size: 0.75rem;
+        margin-bottom: 6px;
+    }
+
+    .page-header > div:last-child {
+        width: 100%;
+        flex-direction: column;
+    }
+
+    .page-header .btn-outline-teal,
+    .page-header .btn-solid-teal {
+        width: 100%;
+        text-align: center;
+        padding: 8px 10px;
+        font-size: 0.78rem;
+    }
+
+    /* -------- STAT GRID - 1 COLUMN -------- */
+    .stat-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 10px;
+        margin-bottom: 12px;
+    }
+
+    .glass-card,
+    .stat-card {
+        padding: 10px;
+    }
+
+    .stat-value {
+        font-size: 1.15rem;
+        line-height: 1;
+    }
+
+    .stat-label {
+        font-size: 0.65rem;
+        margin-top: 3px;
+    }
+
+    .stat-top {
+        margin-bottom: 6px;
+    }
+
+    .stat-icon {
+        width: 32px;
+        height: 32px;
+        font-size: 1rem;
+    }
+
+    /* -------- QUICK ACTIONS -------- */
+    .quick-actions {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        margin-bottom: 12px;
+    }
+
+    .quick-action {
+        width: 100%;
+        justify-content: center;
+        padding: 10px;
+        font-size: 0.75rem;
+        flex-direction: column;
+    }
+
+    .quick-action i {
+        font-size: 1.1rem;
+    }
+
+    .quick-action span {
+        display: block;
+        margin-top: 2px;
+    }
+
+    /* -------- CHART GRID -------- */
+    .chart-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 10px;
+        margin-bottom: 12px;
+    }
+
+    .chart-card {
+        padding: 12px;
+    }
+
+    .chart-head {
+        margin-bottom: 10px;
+    }
+
+    .chart-head h3 {
+        font-size: 0.85rem;
+        margin-bottom: 2px;
+    }
+
+    .chart-sub {
+        font-size: 0.65rem;
+        color: #6d8285;
+    }
+
+    .chart-wrap {
+        min-height: 200px;
+        height: 200px;
+    }
+
+    /* -------- ACTIVITY CARDS -------- */
+    .activity-card {
+        padding: 10px;
+    }
+
+    .activity-card h3 {
+        font-size: 0.8rem;
+        margin-bottom: 8px;
+    }
+
+    .activity-item {
+        display: flex;
+        gap: 6px;
+        margin-bottom: 6px;
+        padding: 6px;
+        background: #f8fafb;
+        border-radius: 6px;
+    }
+
+    .activity-icon {
+        font-size: 0.9rem;
+        width: 24px;
+        height: 24px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #367D8A;
+        flex-shrink: 0;
+    }
+
+    .activity-title {
+        font-size: 0.72rem;
+        font-weight: 600;
+        color: #133336;
+        margin-bottom: 2px;
+    }
+
+    .activity-sub {
+        font-size: 0.65rem;
+        color: #8ea3a6;
+    }
+
+    /* -------- CARDS -------- */
+    .ac-card,
+    .ac-glass-card,
+    .ac-progress-card,
+    .table-card {
+        padding: 10px;
+        border-radius: 8px;
+    }
+
+    .ac-card-title {
+        font-size: 0.85rem;
+        margin-bottom: 10px;
+    }
+
+    /* -------- TABLE -------- */
+    .table-responsive-wrap {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .gov-table {
+        min-width: 100%;
+        font-size: 0.72rem;
+    }
+
+    .gov-table thead th {
+        padding: 8px 6px;
+        font-size: 0.65rem;
+    }
+
+    .gov-table tbody td {
+        padding: 8px 6px;
+        font-size: 0.7rem;
+    }
+
+    .gov-table thead th {
+        white-space: nowrap;
+    }
+
+    /* -------- FORMS -------- */
+    .form-control,
+    .form-select,
+    .form-check-input {
+        font-size: 0.9rem;
+        padding: 0.45rem 0.6rem;
+    }
+
+    .form-group {
+        margin-bottom: 10px;
+    }
+
+    .form-label {
+        font-size: 0.8rem;
+        margin-bottom: 3px;
+        font-weight: 500;
+    }
+
+    /* -------- BUTTONS -------- */
+    .btn {
+        padding: 0.45rem 0.8rem;
+        font-size: 0.8rem;
+        white-space: normal;
+        border-radius: 6px;
+    }
+
+    .btn-lg {
+        padding: 0.6rem 1rem;
+    }
+
+    .btn-sm {
+        padding: 0.3rem 0.6rem;
+        font-size: 0.7rem;
+    }
+
+    /* -------- WELCOME BANNER -------- */
+    .ac-welcome {
+        padding: 12px;
+        gap: 10px;
+        margin-bottom: 12px;
+    }
+
+    .ac-welcome h2 {
+        font-size: 1rem;
+        margin-bottom: 2px;
+    }
+
+    .ac-welcome p {
+        font-size: 0.75rem;
+    }
+
+    .ac-welcome-meta {
+        width: 100%;
+        flex-direction: column;
+        gap: 6px;
+    }
+
+    .ac-welcome-chip {
+        font-size: 0.68rem;
+        padding: 6px 10px;
+        gap: 4px;
+    }
+
+    /* -------- FOOTER -------- */
+    .ac-footer {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 6px;
+        font-size: 0.65rem;
+    }
+
+    .ac-footer-right {
+        width: 100%;
+        flex-wrap: wrap;
+        gap: 4px;
+    }
+
+    /* -------- ANIMATIONS -------- */
+    @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
+}
+
+/* ==========================================================================
+   EXTRA SMALL DEVICES (376px - 480px)
+   ============================================================================ */
+
+@media (min-width: 376px) and (max-width: 480px) {
+    .ac-header {
+        padding: 10px 12px;
+        gap: 8px;
+        min-height: 60px;
+    }
+
+    .ac-logo {
+        width: 32px;
+        height: 32px;
+    }
+
+    .ac-brand-title {
+        font-size: 0.8rem;
+    }
+
+    .ac-icon-btn {
+        width: 34px;
+        height: 34px;
+        font-size: 0.95rem;
+    }
+
+    .ac-sidebar {
+        top: 60px;
+        height: calc(100vh - 60px);
+    }
+
+    .ac-main-content {
+        padding: 12px 10px;
+    }
+
+    .ac-welcome {
+        padding: 14px;
+    }
+
+    .stat-grid {
+        gap: 10px;
+    }
+
+    .chart-wrap {
+        min-height: 220px;
+        height: 220px;
+    }
+
+    .ac-page-title {
+        font-size: 1.1rem;
+    }
+}
+
+/* ==========================================================================
+   SMALL DEVICES (481px - 576px)
+   ============================================================================ */
+
+@media (min-width: 481px) and (max-width: 576px) {
+    .ac-header {
+        padding: 11px 13px;
+        gap: 9px;
+        min-height: 62px;
+    }
+
+    .ac-logo {
+        width: 34px;
+        height: 34px;
+    }
+
+    .ac-brand-title {
+        font-size: 0.88rem;
+    }
+
+    .ac-sidebar {
+        top: 62px;
+        height: calc(100vh - 62px);
+        width: 250px;
+    }
+
+    .ac-main-content {
+        padding: 13px 11px;
+    }
+
+    .stat-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 11px;
+    }
+
+    .quick-actions {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+
+    .chart-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .chart-wrap {
+        min-height: 250px;
+        height: 250px;
+    }
+
+    .page-header .btn-outline-teal,
+    .page-header .btn-solid-teal {
+        width: 100%;
+    }
+
+    .ac-page-title {
+        font-size: 1.15rem;
+    }
+}
+
+/* ==========================================================================
+   MOBILE FIRST APPROACH - SMALL (SM) 577px to 767px
+   ============================================================================ */
+
+@media (min-width: 577px) and (max-width: 767.98px) {
+    .ac-header {
+        padding: 12px 14px;
+        gap: 10px;
+        min-height: 66px;
+    }
+
+    .ac-logo {
+        width: 36px;
+        height: 36px;
+    }
+
+    .ac-sidebar-toggle {
+        width: 36px;
+        height: 36px;
+    }
+
+    .ac-brand-title {
+        font-size: 0.95rem;
+    }
+
+    .ac-header-search {
+        display: none;
+    }
+
+    .ac-sidebar {
+        position: fixed;
+        left: 0;
+        top: 66px;
+        height: calc(100vh - 66px);
+        width: 260px;
+        z-index: 1040;
+        transform: translateX(-100%);
+        transition: transform 0.3s ease;
+        box-shadow: 2px 0 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .ac-sidebar.mobile-open {
+        transform: translateX(0);
+    }
+
+    .ac-sidebar-nav {
+        padding: 12px 8px;
+    }
+
+    .ac-sidebar-nav a {
+        padding: 10px 12px;
+        font-size: 0.84rem;
+        gap: 10px;
+    }
+
+    .ac-main-content {
+        padding: 14px 12px;
+    }
+
+    /* Two-column grid on small tablets */
+    .stat-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+    }
+
+    .quick-actions {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+
+    .chart-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .chart-wrap {
+        min-height: 280px;
+        height: 280px;
+    }
+
+    .page-header > div:last-child {
+        width: 100%;
+        flex-direction: column;
+    }
+
+    .page-header .btn-outline-teal,
+    .page-header .btn-solid-teal {
+        width: 100%;
+    }
+
+    .body-wrapper {
+        flex-direction: column;
+    }
+
+    .ac-welcome {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .ac-welcome-meta {
+        width: 100%;
+        flex-direction: column;
+    }
+}
+
+/* ==========================================================================
+   MEDIUM DEVICES (MD) - 768px to 991px
+   ============================================================================ */
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+    .ac-header {
+        padding: 12px 16px;
+        gap: 12px;
+        min-height: 68px;
+    }
+
+    .ac-header-search {
+        display: none;
+    }
+
+    .ac-main-content {
+        padding: 18px 14px;
+    }
+
+    .ac-sidebar {
+        position: fixed;
+        left: 0;
+        top: 68px;
+        height: calc(100vh - 68px);
+        width: 260px;
+        z-index: 1040;
+        transform: translateX(-100%);
+        transition: transform 0.3s ease;
+        box-shadow: 2px 0 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .ac-sidebar.mobile-open {
+        transform: translateX(0);
+    }
+
+    .ac-body-wrapper {
+        flex-direction: column;
+    }
+
+    /* Three-column grid for stat cards */
+    .stat-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 12px;
+    }
+
+    .quick-actions {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 12px;
+    }
+
+    /* Two-column chart grid */
+    .chart-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 14px;
+    }
+
+    .chart-wrap {
+        min-height: 300px;
+        height: 300px;
+    }
+
+    .page-header {
+        flex-direction: column;
+    }
+
+    .page-header > div:last-child {
+        width: 100%;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    .page-header .btn-outline-teal,
+    .page-header .btn-solid-teal {
+        flex: 1 1 auto;
+        min-width: 160px;
+    }
+
+    .ac-welcome {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .ac-welcome-meta {
+        width: 100%;
+    }
+
+    .ac-section-title {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+/* ==========================================================================
+   LARGE DEVICES (LG) - 992px to 1199px
+   ============================================================================ */
+
+@media (min-width: 992px) and (max-width: 1199.98px) {
+    .ac-header {
+        padding: 12px 18px;
+        min-height: 70px;
+    }
+
+    .ac-header-search {
+        display: flex;
+        max-width: 350px;
+    }
+
+    .ac-main-content {
+        padding: 22px 18px;
+    }
+
+    .ac-sidebar {
+        width: var(--ac-sidebar-w);
+        position: sticky;
+        top: 70px;
+        height: calc(100vh - 70px);
+        transform: translateX(0);
+    }
+
+    .ac-body-wrapper {
+        flex-direction: row;
+    }
+
+    /* Four-column grid for stat cards */
+    .stat-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 14px;
+    }
+
+    .quick-actions {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 12px;
+    }
+
+    /* Two-column chart grid */
+    .chart-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+    }
+
+    .chart-wrap {
+        min-height: 320px;
+        height: 320px;
+    }
+
+    .page-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        flex-wrap: wrap;
+        gap: 16px;
+    }
+
+    .page-header > div:first-child {
+        flex: 1 1 auto;
+        min-width: 0;
+    }
+
+    .page-header > div:last-child {
+        flex: 0 1 auto;
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+    }
+
+    .ac-welcome {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .ac-welcome-meta {
+        width: auto;
+        justify-content: flex-end;
+    }
+}
+
+/* ==========================================================================
+   EXTRA LARGE DEVICES (XL) - 1200px to 1399px
+   ============================================================================ */
+
+@media (min-width: 1200px) and (max-width: 1399.98px) {
+    .ac-header {
+        padding: 12px 22px;
+        min-height: 72px;
+    }
+
+    .ac-header-search {
+        display: flex;
+        max-width: 420px;
+    }
+
+    .ac-main-content {
+        padding: 26px 28px;
+    }
+
+    .ac-sidebar {
+        width: var(--ac-sidebar-w);
+        position: sticky;
+        top: 72px;
+        height: calc(100vh - 72px);
+        transform: translateX(0);
+    }
+
+    .ac-body-wrapper {
+        flex-direction: row;
+    }
+
+    /* Four-column grid for stat cards */
+    .stat-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 16px;
+    }
+
+    .quick-actions {
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        gap: 14px;
+    }
+
+    /* Two-column chart grid */
+    .chart-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 18px;
+    }
+
+    .chart-wrap {
+        min-height: 350px;
+        height: 350px;
+    }
+
+    .page-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: nowrap;
+        gap: 20px;
+    }
+
+    .ac-welcome {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .ac-welcome-meta {
+        width: auto;
+    }
+}
+
+/* ==========================================================================
+   ULTRA-WIDE DISPLAYS (XXL) - 1400px and above
+   ============================================================================ */
+
+@media (min-width: 1400px) {
+    .ac-header {
+        padding: 12px 24px;
+        min-height: 72px;
+    }
+
+    .ac-main-content {
+        padding: 28px 32px;
+    }
+
+    .ac-sidebar {
+        width: var(--ac-sidebar-w);
+        position: sticky;
+        transform: translateX(0);
+    }
+
+    .stat-grid {
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        gap: 16px;
+    }
+
+    .quick-actions {
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        gap: 14px;
+    }
+
+    .chart-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px;
+        max-width: 100%;
+    }
+
+    .chart-wrap {
+        min-height: 360px;
+        height: 360px;
+    }
+
+    .ac-page-title {
+        font-size: 1.6rem;
+    }
+
+    .ac-section-title h4 {
+        font-size: 1.2rem;
+    }
+}
+
+/* ==========================================================================
+   TOUCH DEVICE OPTIMIZATIONS
+   ============================================================================ */
+
+@media (hover: none) and (pointer: coarse) {
+    /* Increase touch targets */
+    button,
+    a,
+    .btn {
+        min-height: 44px;
+        min-width: 44px;
+    }
+
+    .ac-icon-btn {
+        width: 44px;
+        height: 44px;
+    }
+
+    /* Improve tap feedback */
+    a,
+    button {
+        -webkit-tap-highlight-color: transparent;
+        -webkit-touch-callout: none;
+    }
+
+    /* Add active state feedback */
+    .ac-sidebar-nav a:active {
+        background: var(--ac-accent-15);
+    }
+}
+
+/* ==========================================================================
+   LANDSCAPE MODE OPTIMIZATIONS
+   ============================================================================ */
+
+@media (orientation: landscape) and (max-height: 600px) {
+    .ac-header {
+        min-height: 56px;
+    }
+
+    .ac-main-content {
+        padding: 12px 16px;
+    }
+
+    .ac-sidebar {
+        top: 56px;
+        height: calc(100vh - 56px);
+    }
+
+    .chart-wrap {
+        min-height: 200px;
+        height: 200px;
+    }
+
+    .page-header h1 {
+        font-size: 1.1rem;
+        margin-bottom: 0;
+    }
+
+    .page-header p {
+        display: none;
+    }
+}
+
+/* ==========================================================================
+   PRINT STYLES
+   ============================================================================ */
+
+@media print {
+    .ac-header,
+    .ac-sidebar,
+    .ac-sidebar-toggle,
+    .quick-actions {
+        display: none !important;
+    }
+
+    .ac-main-content {
+        padding: 0;
+    }
+
+    .glass-card,
+    .ac-card,
+    .table-card {
+        box-shadow: none;
+        border: 1px solid #ccc;
+        page-break-inside: avoid;
+    }
+
+    .chart-wrap {
+        height: auto;
+    }
+}
+
+/* ==========================================================================
+   DARK MODE SUPPORT (Optional)
+   ============================================================================ */
+
+@media (prefers-color-scheme: dark) {
+    /* Add dark mode variables here if needed */
+}
+
+/* ==========================================================================
+   REDUCED MOTION
+   ============================================================================ */
+
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* ============================================================================
+   RESPONSIVE UTILITIES FOR DASHBOARD COMPONENTS
+   ============================================================================ */
+
+/* Responsive Dashboard Cards */
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.row > [class*="col"] {
+    min-width: 0;
+    flex-shrink: 0;
+}
+
+/* Responsive Progress Cards - Adjust based on screen size */
+@media (max-width: 575.98px) {
+    .row.g-3 > [class*="col"] {
+        flex-basis: 100%;
+        max-width: 100%;
+    }
+}
+
+@media (min-width: 576px) and (max-width: 991.98px) {
+    .row.g-3 > .col-6 {
+        flex-basis: 50%;
+        max-width: 50%;
+    }
+    
+    .row.g-3 > .col-md-4 {
+        flex-basis: 100%;
+        max-width: 100%;
+    }
+}
+
+@media (min-width: 992px) {
+    .row.g-3 > .col-6 {
+        flex-basis: 25%;
+        max-width: 25%;
+    }
+    
+    .row.g-3 > .col-md-4 {
+        flex-basis: 33.33%;
+        max-width: 33.33%;
+    }
+    
+    .row.g-3 > .col-xl-3 {
+        flex-basis: 25%;
+        max-width: 25%;
+    }
+}
+
+/* Responsive Welcome Banner */
+@media (max-width: 767.98px) {
+    .ac-welcome {
+        gap: 12px;
+        flex-direction: column;
+    }
+
+    .ac-welcome-meta {
+        flex-direction: column;
+        width: 100%;
+    }
+}
+
+/* Responsive Section Headers */
+@media (max-width: 767.98px) {
+    .ac-section-title {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+
+    .ac-section-title h4 {
+        margin-bottom: 0;
+    }
+}
+
+/* Responsive Footer */
+@media (max-width: 767.98px) {
+    .ac-footer {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+
+    .ac-footer-right {
+        width: 100%;
+        flex-wrap: wrap;
+    }
+}
+    /* -------- HEADER -------- */
+    .ac-header {
+        padding: 10px 12px;
+        gap: 8px;
+        min-height: 64px;
+        flex-wrap: wrap;
+    }
+
+    .ac-header-left {
+        flex: 1 1 auto;
+        gap: 8px;
+    }
+
+    .ac-logo {
+        width: 32px;
+        height: 32px;
+    }
+
+    .ac-brand-title {
+        font-size: 0.75rem;
+        font-weight: 700;
+    }
+
+    .ac-brand-subtitle {
+        display: none;
+    }
+
+    .ac-sidebar-toggle {
+        width: 34px;
+        height: 34px;
+        font-size: 1rem;
+    }
+
+    /* Hide search on mobile */
+    .ac-header-search {
+        display: none !important;
+    }
+
+    .ac-header-right {
+        gap: 4px;
+        flex-shrink: 0;
+    }
+
+    .ac-icon-btn {
+        width: 34px;
+        height: 34px;
+        font-size: 0.9rem;
+    }
+
+    .ac-lang-btn {
+        padding: 0 8px;
+        font-size: 0.75rem;
+    }
+
+    .ac-profile-btn {
+        padding: 2px;
+        border-radius: 50%;
+    }
+
+    .ac-profile-img {
+        width: 30px;
+        height: 30px;
+    }
+
+    .ac-profile-name,
+    .ac-profile-role,
+    .ac-profile-btn i {
+        display: none !important;
+    }
+
+    /* -------- SIDEBAR -------- */
+    .ac-sidebar {
+        position: fixed;
+        left: 0;
+        top: 64px;
+        width: var(--ac-sidebar-w);
+        height: calc(100vh - 64px);
+        z-index: 1040;
+        transform: translateX(-100%);
+        transition: transform 0.3s ease;
+        box-shadow: 2px 0 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .ac-sidebar.mobile-open {
+        transform: translateX(0);
+    }
+
+    .ac-sidebar-nav {
+        padding: 12px 8px;
+    }
+
+    .ac-sidebar-nav a {
+        padding: 10px 12px;
+        font-size: 0.82rem;
+        gap: 10px;
+    }
+
+    .ac-sidebar-nav a i {
+        font-size: 1.1rem;
+        width: 20px;
+    }
+
+    .ac-sidebar-backdrop {
+        display: none;
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.4);
+        z-index: 1035;
+        animation: fadeIn 0.2s ease;
+    }
+
+    .ac-sidebar-backdrop.show {
+        display: block;
+    }
+
+    /* -------- BODY LAYOUT -------- */
+    .ac-body-wrapper {
+        flex-direction: column;
+    }
+
+    .ac-main-content {
+        flex: 1 1 auto;
+        width: 100%;
+        padding: 12px 10px;
+        min-height: calc(100vh - 64px);
+    }
+
+    /* -------- CONTENT -------- */
+    .page-header {
+        flex-direction: column;
+        gap: 12px;
+        margin-bottom: 16px;
+    }
+
+    .page-header h1 {
+        font-size: 1.25rem;
+        margin-bottom: 4px;
+    }
+
+    .page-header p {
+        font-size: 0.85rem;
+        margin-bottom: 8px;
+    }
+
+    .page-header > div:last-child {
+        width: 100%;
+        flex-direction: column;
+    }
+
+    .page-header .btn-outline-teal,
+    .page-header .btn-solid-teal {
+        width: 100%;
+        text-align: center;
+        padding: 10px 12px;
+        font-size: 0.85rem;
+    }
+
+    /* -------- STAT GRID -------- */
+    .stat-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 12px;
+        margin-bottom: 16px;
+    }
+
+    .glass-card,
+    .stat-card {
+        padding: 12px;
+    }
+
+    .stat-value {
+        font-size: 1.3rem;
+        line-height: 1;
+    }
+
+    .stat-label {
+        font-size: 0.72rem;
+        margin-top: 4px;
+    }
+
+    .stat-top {
+        margin-bottom: 8px;
+    }
+
+    /* -------- QUICK ACTIONS -------- */
+    .quick-actions {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        margin-bottom: 16px;
+    }
+
+    .quick-action {
+        width: 100%;
+        justify-content: center;
+        padding: 12px;
+        font-size: 0.82rem;
+    }
+
+    .quick-action i {
+        font-size: 1.2rem;
+    }
+
+    .quick-action span {
+        display: block;
+        margin-top: 4px;
+    }
+
+    /* -------- CHART GRID -------- */
+    .chart-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 12px;
+        margin-bottom: 16px;
+    }
+
+    .chart-card {
+        padding: 14px;
+    }
+
+    .chart-head {
+        margin-bottom: 12px;
+    }
+
+    .chart-head h3 {
+        font-size: 0.95rem;
+        margin-bottom: 2px;
+    }
+
+    .chart-sub {
+        font-size: 0.72rem;
+        color: #6d8285;
+    }
+
+    .chart-wrap {
+        min-height: 250px;
+        height: 250px;
+    }
+
+    /* -------- ACTIVITY CARDS -------- */
+    .activity-card {
+        padding: 12px;
+    }
+
+    .activity-card h3 {
+        font-size: 0.9rem;
+        margin-bottom: 10px;
+    }
+
+    .activity-item {
+        display: flex;
+        gap: 8px;
+        margin-bottom: 8px;
+        padding: 8px;
+        background: #f8fafb;
+        border-radius: 8px;
+    }
+
+    .activity-icon {
+        font-size: 1rem;
+        width: 28px;
+        height: 28px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #367D8A;
+        flex-shrink: 0;
+    }
+
+    .activity-title {
+        font-size: 0.8rem;
+        font-weight: 600;
+        color: #133336;
+        margin-bottom: 2px;
+    }
+
+    .activity-sub {
+        font-size: 0.7rem;
+        color: #8ea3a6;
+    }
+
+    /* -------- TABLE -------- */
+    .table-responsive-wrap {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .gov-table {
+        min-width: 100%;
+        font-size: 0.8rem;
+    }
+
+    .gov-table thead th {
+        padding: 10px 8px;
+        font-size: 0.7rem;
+    }
+
+    .gov-table tbody td {
+        padding: 10px 8px;
+        font-size: 0.78rem;
+    }
+
+    .gov-table thead th {
+        white-space: nowrap;
+    }
+
+    /* -------- FORMS -------- */
+    .form-control,
+    .form-select,
+    .form-check-input {
+        font-size: 0.95rem;
+        padding: 0.5rem 0.75rem;
+    }
+
+    .form-group {
+        margin-bottom: 12px;
+    }
+
+    .form-label {
+        font-size: 0.85rem;
+        margin-bottom: 4px;
+        font-weight: 500;
+    }
+
+    /* -------- CARDS -------- */
+    .ac-card,
+    .ac-glass-card,
+    .ac-progress-card,
+    .table-card {
+        padding: 12px;
+        border-radius: 10px;
+    }
+
+    .ac-card-title {
+        font-size: 0.95rem;
+        margin-bottom: 12px;
+    }
+
+    /* -------- BUTTONS -------- */
+    .btn {
+        padding: 0.5rem 1rem;
+        font-size: 0.88rem;
+        white-space: normal;
+        border-radius: 8px;
+    }
+
+    .btn-lg {
+        padding: 0.7rem 1.2rem;
+    }
+
+    .btn-sm {
+        padding: 0.35rem 0.75rem;
+        font-size: 0.75rem;
+    }
+
+    /* -------- PROGRESS BAR -------- */
+    .progress-mini {
+        height: 6px;
+        border-radius: 999px;
+    }
+
+    .progress-mini span {
+        height: 100%;
+    }
+
+    /* -------- FOOTER -------- */
+    .ac-footer {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+        font-size: 0.7rem;
+    }
+
+    .ac-footer-right {
+        width: 100%;
+        flex-wrap: wrap;
+    }
+
+    /* -------- ANIMATIONS -------- */
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+        }
+        to {
+            opacity: 1;
+        }
+    }
+}
+
+/* ==========================================================================
+   SMALL DEVICES (SM) - 576px to 767px
+   ========================================================================== */
+@media (min-width: 576px) and (max-width: 767.98px) {
+    .ac-header {
+        padding: 12px 14px;
+        gap: 10px;
+    }
+
+    .ac-logo {
+        width: 36px;
+        height: 36px;
+    }
+
+    .ac-sidebar-toggle {
+        width: 36px;
+        height: 36px;
+    }
+
+    .ac-brand-title {
+        font-size: 0.9rem;
+    }
+
+    .ac-header-search {
+        display: none;
+    }
+
+    .ac-main-content {
+        padding: 14px 12px;
+    }
+
+    /* Two-column grid on small tablets */
+    .stat-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+    }
+
+    .quick-actions {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+        margin-bottom: 16px;
+    }
+
+    .quick-action {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .chart-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 12px;
+    }
+
+    .chart-wrap {
+        min-height: 280px;
+        height: 280px;
+    }
+
+    .page-header > div:last-child {
+        width: 100%;
+        flex-direction: column;
+    }
+
+    .page-header .btn-outline-teal,
+    .page-header .btn-solid-teal {
+        width: 100%;
+    }
+}
+
+/* ==========================================================================
+   MEDIUM DEVICES (MD) - 768px to 991px
+   ========================================================================== */
+@media (min-width: 768px) and (max-width: 991.98px) {
+    .ac-header {
+        padding: 12px 16px;
+        gap: 12px;
+    }
+
+    .ac-header-search {
+        display: none;
+    }
+
+    .ac-main-content {
+        padding: 18px 14px;
+    }
+
+    .ac-sidebar {
+        position: fixed;
+        left: 0;
+        top: 72px;
+        height: calc(100vh - 72px);
+        z-index: 1040;
+        transform: translateX(-100%);
+        transition: transform 0.3s ease;
+        box-shadow: 2px 0 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .ac-sidebar.mobile-open {
+        transform: translateX(0);
+    }
+
+    .ac-body-wrapper {
+        flex-direction: column;
+    }
+
+    /* Three-column grid for stat cards */
+    .stat-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 12px;
+    }
+
+    .quick-actions {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+    }
+
+    /* Two-column chart grid */
+    .chart-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 14px;
+    }
+
+    .chart-wrap {
+        min-height: 300px;
+        height: 300px;
+    }
+
+    .page-header {
+        flex-direction: column;
+    }
+
+    .page-header > div:last-child {
+        width: 100%;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    .page-header .btn-outline-teal,
+    .page-header .btn-solid-teal {
+        flex: 1 1 auto;
+        min-width: 160px;
+    }
+}
+
+/* ==========================================================================
+   LARGE DEVICES (LG) - 992px to 1199px
+   ========================================================================== */
+@media (min-width: 992px) and (max-width: 1199.98px) {
+    .ac-header {
+        padding: 12px 18px;
+    }
+
+    .ac-header-search {
+        display: flex;
+        max-width: 350px;
+    }
+
+    .ac-main-content {
+        padding: 22px 18px;
+    }
+
+    .ac-sidebar {
+        width: var(--ac-sidebar-w);
+        position: sticky;
+        transform: translateX(0);
+    }
+
+    .ac-body-wrapper {
+        flex-direction: row;
+    }
+
+    /* Four-column grid for stat cards */
+    .stat-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 14px;
+    }
+
+    .quick-actions {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 12px;
+    }
+
+    /* Two-column chart grid */
+    .chart-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+    }
+
+    .chart-wrap {
+        min-height: 320px;
+        height: 320px;
+    }
+
+    .page-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        flex-wrap: wrap;
+        gap: 16px;
+    }
+
+    .page-header > div:first-child {
+        flex: 1 1 auto;
+        min-width: 0;
+    }
+
+    .page-header > div:last-child {
+        flex: 0 1 auto;
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+    }
+}
+
+/* ==========================================================================
+   EXTRA LARGE DEVICES (XL) - 1200px and above
+   ========================================================================== */
+@media (min-width: 1200px) {
+    .ac-header {
+        padding: 12px 22px;
+    }
+
+    .ac-header-search {
+        display: flex;
+        max-width: 420px;
+    }
+
+    .ac-main-content {
+        padding: 26px 28px;
+    }
+
+    .ac-sidebar {
+        width: var(--ac-sidebar-w);
+        position: sticky;
+        transform: translateX(0);
+    }
+
+    .ac-body-wrapper {
+        flex-direction: row;
+    }
+
+    /* Adaptive grid layouts */
+    .stat-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+        gap: 16px;
+    }
+
+    .quick-actions {
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        gap: 14px;
+    }
+
+    .chart-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 18px;
+    }
+
+    .chart-wrap {
+        min-height: 350px;
+        height: 350px;
+    }
+
+    .page-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: nowrap;
+        gap: 20px;
+    }
+}
+
+/* ==========================================================================
+   ULTRA-WIDE DISPLAYS (>1400px)
+   ========================================================================== */
+@media (min-width: 1400px) {
+    .ac-main-content {
+        padding: 28px 32px;
+    }
+
+    .stat-grid {
+        grid-template-columns: repeat(6, 1fr);
+    }
+
+    .quick-actions {
+        grid-template-columns: repeat(6, 1fr);
+    }
+
+    .chart-grid {
+        grid-template-columns: repeat(4, 1fr);
+        max-width: 100%;
+    }
+}
+
+/* ==========================================================================
+   TOUCH DEVICE OPTIMIZATIONS
+   ========================================================================== */
+@media (hover: none) and (pointer: coarse) {
+    /* Increase touch targets */
+    button,
+    a,
+    .btn {
+        min-height: 44px;
+        min-width: 44px;
+    }
+
+    .ac-icon-btn {
+        width: 44px;
+        height: 44px;
+    }
+
+    /* Improve tap feedback */
+    a,
+    button {
+        -webkit-tap-highlight-color: transparent;
+        -webkit-touch-callout: none;
+    }
+
+    /* Add active state feedback */
+    .ac-sidebar-nav a:active {
+        background: var(--ac-accent-15);
+    }
+}
+
+/* ==========================================================================
+   LANDSCAPE MODE OPTIMIZATIONS
+   ========================================================================== */
+@media (orientation: landscape) and (max-height: 600px) {
+    .ac-header {
+        min-height: 56px;
+    }
+
+    .ac-main-content {
+        padding: 12px 16px;
+    }
+
+    .ac-sidebar {
+        top: 56px;
+        height: calc(100vh - 56px);
+    }
+
+    .chart-wrap {
+        min-height: 200px;
+        height: 200px;
+    }
+
+    .page-header h1 {
+        font-size: 1.1rem;
+        margin-bottom: 0;
+    }
+
+    .page-header p {
+        display: none;
+    }
+}
+
+/* ==========================================================================
+   PRINT STYLES
+   ========================================================================== */
+@media print {
+    .ac-header,
+    .ac-sidebar,
+    .ac-sidebar-toggle,
+    .quick-actions {
+        display: none !important;
+    }
+
+    .ac-main-content {
+        padding: 0;
+    }
+
+    .glass-card,
+    .ac-card,
+    .table-card {
+        box-shadow: none;
+        border: 1px solid #ccc;
+        page-break-inside: avoid;
+    }
+
+    .chart-wrap {
+        height: auto;
+    }
+}
+
+/* ==========================================================================
+   DARK MODE SUPPORT (Optional - if needed in future)
+   ========================================================================== */
+@media (prefers-color-scheme: dark) {
+    /* Add dark mode variables here if needed */
+}
+
+/* ==========================================================================
+   REDUCED MOTION
+   ========================================================================== */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
