@@ -58,7 +58,7 @@ function closeModal() {
     document.getElementById('verificationModal').classList.remove('flex');
 }
 
-git pull origin main
+ main
 async function submitVerification() {
     const decision = document.querySelector('input[name="decision"]:checked').value;
     const remarks = document.getElementById('engineerRemarks').value;
